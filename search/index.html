@@ -5,22 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     </head>
-    
-    <body>
-        <h1 class="has-text-centered title">Show Search</h1>
-        <div class="has-text-centered">
-            <form id="searchForm">
+
+<body>
+    <h1 class="has-text-centered title"></h1>
+    <div class="has-text-centered">
+
+    </div>
+    <div class="block"></div>
+    <div class="container">
+        <div class="card has-text-centered">
+            <div class="title has-text-centered" id="title">Show Search</div>
+            <form id="searchForm" class="is-centered">
                 <input type="text" placeholder="Enter Show Name" name="query">
                 <button>🔍</button>
             </form>
-        </div>
-        <div id="movies" class="container">
+            <div class="card-content">
+                <div class="columns is-mobile">
+                    <div id="movies1" class="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
+                    </div>
     
-        </div>
-        <script src="app.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+                    <div id="movies2" class="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
+                    </div>
     
-    </body>
+                    <div id="movies3" class="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
+                    </div>
+    
+                    <div id="movies4" class="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="app.css">
+</body>
 
 </html>
