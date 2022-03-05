@@ -1,0 +1,15 @@
+.columns h3 {
+    color: black;
+    box-shadow: 1px 1px 1px 1px rgb(231, 228, 228);
+    font-weight: 600;
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#title {
+    box-shadow: 1px 1px 1px 1px rgb(231, 228, 228);
+}
