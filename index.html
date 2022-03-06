@@ -4,16 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
+    <script src="https://kit.fontawesome.com/c0be8886f3.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     </head>
     
     <body>
-        <h1 class="has-text-centered title">Our Project links</h1>
-        <a href="/javascript/search/">Show Search</a>
-   
+        <div class="panel is-primary">
+            <div class="panel-heading">
+                <div class="title has-text-centered is-size-1">&disin; Sam And Dad Projects &nisd;</div>
+            </div>
+            <div class="panel-tabs">
+                <a class="is-primary is-active" id="all">All</a>
+                <a class="is-primary" id="copy">Copy</a>
+                <a class="is-primary" id="project">Project</a>
+            </div>
+            <div class="panel-block">
+                <p class="control has-icons-left">
+                  <input id="search"class="input" type="text" placeholder="Search">
+                  <span class="icon is-left">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                  </span>
+                </p>
+            </div>
+
+            <!-- Copy This For Copys -->
+            <div class="panel-block is-active copy" id="copyable">
+                <i class="fa-solid fa-copy"></i>
+                <span class="name" id="Bulma">Click To Copy Bulma and Axios Link</span>
+            </div>
+            
+            <!-- Copy This For Projects -->
+              <a class="panel-block is-active project" href="/javascript/search/index.html">
+                <i class="fa-solid fa-folder"></i>
+                <span id="tvsearch">TV Search Project</span>
+              </a>
+        </div>
+
         <script src="app.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="app.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-    
     </body>
 
 </html>
