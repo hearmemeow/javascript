@@ -1,71 +1,73 @@
 const form = document.querySelector('#searchForm')
-const movies1 = document.querySelector('#movies1')
-const movies2 = document.querySelector('#movies2')
-const movies3 = document.querySelector('#movies3')
-const movies4 = document.querySelector('#movies4')
-
+const overallContainer = document.querySelector('#overallContainer')
 let contentAlreadyLoaded = false
 
 async function generateMovies(){
+    contentAlreadyLoaded = true
     let searchString = `https://api.tvmaze.com/search/shows?q=${form.elements.query.value}`
     let res = await axios.get(searchString)
     console.log(res.data)
-    let columnNumber = 0
-    contentAlreadyLoaded = true
     for(let result of res.data){
-        columnNumber++
         let anchor = document.createElement('a')
         let container = document.createElement('div')
         let title = document.createElement('h3')
         let image = document.createElement('img')
-        if(columnNumber === 1){
-            movies1.append(anchor)
-            anchor.append(container)
-            container.append(title)
-            container.append(image)
-        } else if(columnNumber === 2){
-            movies2.append(anchor)
-            anchor.append(container)
-            container.append(title)
-            container.append(image)
-        } else if(columnNumber === 3){
-            movies3.append(anchor)
-            anchor.append(container)
-            container.append(title)
-            container.append(image)
-        } else if(columnNumber === 4){
-            movies4.append(anchor)
-            anchor.append(container)
-            container.append(title)
-            container.append(image)
-        } else {
-            columnNumber = 1
-            movies1.append(anchor)
-            anchor.append(container)
-            container.append(title)
-            container.append(image)
-        }
-        console.log(columnNumber)
+        title.classList.add('title')
+        overallContainer.append(anchor)
+        anchor.append(container)
+        container.append(title)
+        container.append(image)
+
         title.innerText = result.show.name
         image.src = result.show.image.medium
         anchor.href = result.show.url
     }
 } 
 
-function deleteMovies(){
-    while (movies1.firstChild == true) {
-        movies1.removeChild(myNode.lastChild);
+async function generatePeople(){
+    contentAlreadyLoaded = true
+    let searchString = `https://api.tvmaze.com/search/people?q=${form.elements.query.value}`
+    let res = await axios.get(searchString)
+    console.log(res.data)
+    for(let result of res.data){
+        let anchor = document.createElement('a')
+        let container = document.createElement('div')
+        let name = document.createElement('h3')
+        let image = document.createElement('img')
+        name.classList.add('title')
+        overallContainer.append(anchor)
+        anchor.append(container)
+        container.append(name)
+        container.append(image)
+        name.innerText = result.person.name
+        let imageObject = result.person.image
+        if(result.person.image == null) {
+            image.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ68D1zB62HiAWZAkQpessCgGpmfvJQUX8Rhg&usqp=CAU'
+        }
+        else {
+             image.src = imageObject.original
+        }
+        anchor.href = result.person.url
+    }
+}
+
+function clear(){
+    while (overallContainer.firstChild) {
+    overallContainer.removeChild(overallContainer.lastChild);
     }
 }
       
 
 form.addEventListener('submit', async (e) => {
-    // if(contentAlreadyLoaded === false){
+    if(contentAlreadyLoaded === false){
         e.preventDefault()
-        console.log(form.elements.query.value)
-        generateMovies()
-    // } else {
-    //     e.preventDefault()
-    // }
-    console.log('e')
+        console.log(contentAlreadyLoaded)
+        if(form.elements.searchType.value == 'shows') { generateMovies() }
+        else if(form.elements.searchType.value == 'people') { generatePeople() }
+    } else {
+        e.preventDefault()
+        console.log(contentAlreadyLoaded)
+        if(form.elements.searchType.value == 'shows') { clear(); generateMovies() }
+        else if(form.elements.searchType.value == 'people') { clear(); generatePeople() }
+    }
 })
