@@ -16,23 +16,17 @@
         <div class="card has-text-centered">
             <div class="title has-text-centered" id="title">Show Search</div>
             <form id="searchForm" class="is-centered">
-                <input type="text" placeholder="Enter Show Name" name="query">
-                <button>🔍</button>
+                <div class="select">
+                    <select  name="searchType" id="searchType" >
+                        <option value="shows">Shows</option>
+                        <option value="people">People</option>
+                    </select>
+                </div>
+                <input type="text" name="query" id="search" placeholder="Enter the Show or Person" class="input">
+                <button class="button">🔍</button>
             </form>
             <div class="card-content">
-                <div class="columns is-mobile">
-                    <div id="movies1" class="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
-                    </div>
-    
-                    <div id="movies2" class="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
-                    </div>
-    
-                    <div id="movies3" class="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
-                    </div>
-    
-                    <div id="movies4" class="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
-                    </div>
-                </div>
+                <div id="overallContainer" class="container"></div>
             </div>
         </div>
     </div>
