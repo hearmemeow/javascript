@@ -40,12 +40,11 @@ async function generatePeople(){
         container.append(name)
         container.append(image)
         name.innerText = result.person.name
-        let imageObject = result.person.image
         if(result.person.image == null) {
             image.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ68D1zB62HiAWZAkQpessCgGpmfvJQUX8Rhg&usqp=CAU'
         }
         else {
-             image.src = imageObject.original
+             image.src = result.person.image.medium
         }
         anchor.href = result.person.url
     }
